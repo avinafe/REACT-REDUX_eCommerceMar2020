@@ -1,1 +1,1 @@
-export const apiUrlProducts = "https://www.amiiboapi.com/api/amiibo";
+export const apiUrlProducts = "https://www.amiiboapi.com/api/gameseries/";
