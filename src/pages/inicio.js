@@ -1,12 +1,7 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { fetchProducts } from "../redux";
+import React from "react";
 import Products from "../components/Products";
 
-function Inicio({ fetchProducts }) {
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+function Inicio() {
   return (
     <div>
       <Products />
@@ -14,11 +9,4 @@ function Inicio({ fetchProducts }) {
   );
 }
 
-const mapStateToProps = state => {
-  return { productsData: state.products };
-};
-
-const mapDispatchToProps = dispatch => {
-  return { fetchProducts: () => dispatch(fetchProducts()) };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Inicio);
+export default Inicio;

@@ -27,13 +27,15 @@ const fetchProductsFailure = error => {
 export const fetchProducts = () => {
   return dispatch => {
     dispatch(fetchProductsRequest());
-    fetch("https://www.amiiboapi.com/api/gameserie/")
-      .then(response => {
-        response.json();
-        dispatch(fetchProductsSuccess(response));
+    fetch("https://www.amiiboapi.com/api/amiibo")
+      .then(res => res.json())
+      .then(res => {
+        const products = res["amiibo"];
+        dispatch(fetchProductsSuccess(products));
       })
       .catch(error => {
-        dispatch(fetchProductsFailure(error));
+        const errorMsg = error.message;
+        dispatch(fetchProductsFailure(errorMsg));
       });
   };
 };
